@@ -27,8 +27,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    logout!(current_user)
-    redirect_to :cats_url
+    logout
+    redirect_to cats_url
   end
 
 end

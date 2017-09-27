@@ -17,7 +17,12 @@
       <a href="<%=new_user_url%>">Sign up! </a>
     <% else  %>
       <h1>Welcome <%=current_user.user_name%> </h1>
-      <a href="<%=session_url%>">Log out</a>
+        <form action="<%= session_url %>" method="post">
+          <input type='hidden' name='authenticity_token' value="<%= form_authenticity_token %>" />
+          <input type="hidden" name="_method" value="DELETE"/>
+          <input type="submit" name="delete" value="Log Out!!"/>
+        </form>
+
     <% end %>
     <%= yield %>
 
